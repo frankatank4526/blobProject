@@ -97,6 +97,15 @@ def findColorSpot(picture, color):
 ######################Code Starts Here##################################
 
 
+def searchBlue():
+    spotblue = 2
+    while True:
+        turnBy(45)
+        picture = takePicture()
+        show(picture)
+   
+searchBlue()
+        
 
 
 
