@@ -97,12 +97,73 @@ def findColorSpot(picture, color):
 ######################Code Starts Here##################################
 
 def searchRed():
-    spotRed = 1
+    blobsFound = 0
     while True:
         turnBy(45)
         picture = takePicture()
+        #assignment is one "=" while in if statements , use "=="
         show(picture)
-        stop()
+        x=findColorSpot(picture,1)
+        print(x)
+        if x == 131.5:
+            
+            while True:
+                blobsFound = blobsFound + 1
+                forward(5.5,1)
+                backward(5.5,1)
+                break
+            while True:
+                turnBy(45)
+                
+                wait(1)
+                picture = takePicture()
+                x=findColorSpot(picture,3)
+                #assignment is one "=" while in if statements , use "=="
+            
+            
+                if x == 131.5:
+                    blobsFound == blobsFound + 1
+                    forward (5.5,1)
+                    backward (5.5,1)
+                    if blobsFound == 4:
+                        break
+                       
+                else:
+                    while True:
+                        turnBy(45)
+                        picture = takePicture()
+                        #assignment is one "=" while in if statements , use "=="
+                    
+                        x=findColorSpot(picture,2)
+                    
+                        
+                      
+                        if x == 131.5:
+                            blobsFound == blobsFound +1
+                           
+                               
+                            while True:
+                                turnBy(45)
+                                picture = takePicture()
+                                x=findColorSpot(picture,4)
+                                if x == 131.5: 
+                                    blobsFound == blobsFound + 1
+                                    if blobsFound == 4:
+                                        print("aye its ovr")
+                                        break
+                                
+                            
+                
+            
+                
+            
+      
+     
+            
+        else:
+            wait(1)
+  
+     
         
 searchRed()
 
