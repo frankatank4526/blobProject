@@ -2,7 +2,7 @@ import Myro
 from Myro import *
 from Graphics import *
 from random import *
-
+import random 
 width = 500
 height = 500
 sim = Simulation("Maze World", width, height, Color("gray"))
@@ -96,12 +96,13 @@ def findColorSpot(picture, color):
 
 ######################Code Starts Here##################################
 
-def searchRed():
+def searchBlobs():
   
     
     blobsFound = 0
     while True:
-        turnBy(45)
+        y = random.randint(45,270)
+        turnBy(y)
         picture = takePicture()
         #assignment is one "=" while in if statements , use "=="
         show(picture)
@@ -147,7 +148,7 @@ def searchRed():
         
      
         
-searchRed()
+searchBlobs()
 
 
 
