@@ -112,7 +112,7 @@ def searchBlobs():
             x=findColorSpot(picture,1)
             #color = red
             print(x)
-            if x  >= 130:
+            if x  >= 130 and x <= 200:
                 blobsFound = blobsFound + 1
                 forward(5.5,1)
                 backward(5.5,1)
@@ -124,7 +124,7 @@ def searchBlobs():
             x=findColorSpot(picture,3)
             #color = blue
             print(x)
-            if x >= 130:
+            if x >= 130 and x <= 200:
                 blobsFound = blobsFound + 1
                 forward(5.5,1)
                 backward(5.5,1)
@@ -135,7 +135,7 @@ def searchBlobs():
             x=findColorSpot(picture,2)
             #color = green
             print(x)
-            if x >= 130:
+            if x >= 130 and x <= 200:
                 blobsFound = blobsFound + 1
                 forward(5.5,1)
                 backward(5.5,1)
@@ -143,7 +143,7 @@ def searchBlobs():
             x=findColorSpot(picture,4)
             #color = yellow
             print(x)
-            if x >= 130:
+            if x >= 130 and x <= 200:
                 blobsFound = blobsFound + 1
                 forward(5.5,1)
                 backward(5.5,1)
