@@ -97,40 +97,48 @@ def findColorSpot(picture, color):
 ######################Code Starts Here##################################
 
 def searchRed():
+  
+    
     blobsFound = 0
     while True:
         turnBy(45)
         picture = takePicture()
         #assignment is one "=" while in if statements , use "=="
         show(picture)
-        
+      
         
         if blobsFound == 0:
             x=findColorSpot(picture,1)
+            print(x)
             if x == 131.5:
                 blobsFound = blobsFound + 1
                 forward(5.5,1)
                 backward(5.5,1)
+                print(blobsFound)
             else:
                 wait(1)
                 
         elif blobsFound == 1:
             x=findColorSpot(picture,3)
-            if x == 131.5:
+            print(x)
+            if x >= 130:
                 blobsFound = blobsFound + 1
                 forward(5.5,1)
                 backward(5.5,1)
             else:
                 wait(1)
+                print(blobsFound)
         elif blobsFound == 2:
             x=findColorSpot(picture,2)
-            if x == 131.5:
+            print(x)
+            if x >= 130:
                 blobsFound = blobsFound + 1
                 forward(5.5,1)
                 backward(5.5,1)
         elif blobsFound == 3:
             x=findColorSpot(picture,4)
-            if x == 131.5:
+            print(x)
+            if x >= 130:
                 blobsFound = blobsFound + 1
                 forward(5.5,1)
                 backward(5.5,1)
