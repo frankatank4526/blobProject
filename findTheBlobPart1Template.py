@@ -2,7 +2,7 @@ import Myro
 from Myro import *
 from Graphics import *
 from random import *
-
+import random 
 width = 500
 height = 500
 sim = Simulation("Maze World", width, height, Color("gray"))
@@ -96,27 +96,60 @@ def findColorSpot(picture, color):
 
 ######################Code Starts Here##################################
 
-def searchBlue():
+def searchBlobs():
+  
+    
     blobsFound = 0
     while True:
-        turnBy(45)
+        y = random.randint(0,180)
+        turnBy(y)
         picture = takePicture()
+        #assignment is one "=" while in if statements , use "=="
         show(picture)
-        x = findColorSpot(picture,3)
-        print(x)
-        if x == 131.5:
-            blobsFound = blobsFound + 1
-            forward(5.5,1)
-            backward(5.5,1)
-            break   
-    # while true: 
-     #   if blobsFound < 4:
-searchBlue()
-            
-
-   
-
+      
         
-
-
-
+        if blobsFound == 0: #find red
+            x=findColorSpot(picture,1)
+            #color = red
+            print(x)
+            if x  >= 130 and x <= 200:
+                blobsFound = blobsFound + 1
+                forward(5.5,1)
+                backward(5.5,1)
+                print(blobsFound)
+            else:
+                wait(1)
+                
+        elif blobsFound == 1: #find blue
+            x=findColorSpot(picture,3)
+            #color = blue
+            print(x)
+            if x >= 130 and x <= 200:
+                blobsFound = blobsFound + 1
+                forward(5.5,1)
+                backward(5.5,1)
+            else:
+                wait(1)
+                print(blobsFound)
+        elif blobsFound == 2: #find green
+            x=findColorSpot(picture,2)
+            #color = green
+            print(x)
+            if x >= 130 and x <= 200:
+                blobsFound = blobsFound + 1
+                forward(5.5,1)
+                backward(5.5,1)
+        elif blobsFound == 3: #find yellow
+            x=findColorSpot(picture,4)
+            #color = yellow
+            print(x)
+            if x >= 130 and x <= 200:
+                blobsFound = blobsFound + 1
+                forward(5.5,1)
+                backward(5.5,1)
+                
+                break
+        
+     
+        
+searchBlobs()
