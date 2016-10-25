@@ -101,7 +101,7 @@ def searchBlobs():
     
     blobsFound = 0
     while True:
-        y = random.randint(45,270)
+        y = random.randint(0,180)
         turnBy(y)
         picture = takePicture()
         #assignment is one "=" while in if statements , use "=="
@@ -110,8 +110,9 @@ def searchBlobs():
         
         if blobsFound == 0:
             x=findColorSpot(picture,1)
+            #color = red
             print(x)
-            if x == 131.5:
+            if x  >= 130:
                 blobsFound = blobsFound + 1
                 forward(5.5,1)
                 backward(5.5,1)
@@ -121,6 +122,7 @@ def searchBlobs():
                 
         elif blobsFound == 1:
             x=findColorSpot(picture,3)
+            #color = blue
             print(x)
             if x >= 130:
                 blobsFound = blobsFound + 1
@@ -131,6 +133,7 @@ def searchBlobs():
                 print(blobsFound)
         elif blobsFound == 2:
             x=findColorSpot(picture,2)
+            #color = green
             print(x)
             if x >= 130:
                 blobsFound = blobsFound + 1
@@ -138,6 +141,7 @@ def searchBlobs():
                 backward(5.5,1)
         elif blobsFound == 3:
             x=findColorSpot(picture,4)
+            #color = yellow
             print(x)
             if x >= 130:
                 blobsFound = blobsFound + 1
