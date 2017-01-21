@@ -5,6 +5,7 @@ from random import *
 import random 
 width = 500
 height = 500
+
 sim = Simulation("Maze World", width, height, Color("gray"))
 
 #outside walls
@@ -95,63 +96,43 @@ def findColorSpot(picture, color):
 # 4-YELLOW
 
 ######################Code Starts Here##################################
+#searches all blobs
+
 
 def searchBlobs():
-  
-    
-    blobsFound = 0
-    while True:
-        y = random.randint(0,180)
-        turnBy(y)
-        picture = takePicture()
-        #assignment is one "=" while in if statements , use "=="
-        show(picture)
-      
-        
-        if blobsFound == 0:
-            x=findColorSpot(picture,1)
-            #color = red
-            print(x)
-            if x  >= 130 and x <= 200:
-                blobsFound = blobsFound + 1
-                forward(5.5,1)
-                backward(5.5,1)
-                print(blobsFound)
-            else:
+    for y in range(1,5):
+        turnBy(randrange(30,60))   
+        pic=takePicture()
+        show(pic)  
+
+        x=findColorSpot(pic,y)
+
+        while (x==0):
+            turnBy(randrange(30,60))
+            pic=takePicture()
+            x=findColorSpot(pic,y)
+               
+           
+        while (0 < x < 90):
+            turnBy(10)
+            pic=takePicture()
+            x=findColorSpot(pic,y)
+            
+        while (150 < x < 256):
+            turnBy(350)
+            pic=takePicture()
+            x=findColorSpot(pic,y)
+            
+        if (90 < x <150):
+            forward(2,3)
+            pic=takePicture()
+            x=findColorSpot(pic,y)
+            if (x ==-1):
                 wait(1)
-                
-        elif blobsFound == 1:
-            x=findColorSpot(picture,3)
-            #color = blue
-            print(x)
-            if x >= 130 and x <= 200:
-                blobsFound = blobsFound + 1
-                forward(5.5,1)
-                backward(5.5,1)
-            else:
-                wait(1)
-                print(blobsFound)
-        elif blobsFound == 2:
-            x=findColorSpot(picture,2)
-            #color = green
-            print(x)
-            if x >= 130 and x <= 200:
-                blobsFound = blobsFound + 1
-                forward(5.5,1)
-                backward(5.5,1)
-        elif blobsFound == 3:
-            x=findColorSpot(picture,4)
-            #color = yellow
-            print(x)
-            if x >= 130 and x <= 200:
-                blobsFound = blobsFound + 1
-                forward(5.5,1)
-                backward(5.5,1)
-                
-                break
-        
-     
-        
+                backward(2,3)
+                y+=1
+          
+            
 searchBlobs()
 
 
